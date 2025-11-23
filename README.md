@@ -3,21 +3,24 @@
 This repo implements the code for our paper "Human in the Loop Visual Inspection for Safety Critical Systems". In the course of the paper we demonstrate hoe to create highly reliable ML-based inspection systems based on the *R4VR*-framework using explainable AI (XAI) and uncertainty quantification (UQ). The basic workflow of the framework is shown below: 
 
 ![Fig. 1: Basic workflow of *R4VR*-framework](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/ims/R4VR.PNG)
+*Fig. 1: Basic workflow of R4VR-framework; developer undergoes the phases "Reliability", "Validation" and "Verification" to create highly reliable models; end user undergoes the steps of "Verification", "Validation" and "Reliability" to apply modesl properly*
 
 Our exact guidelines on how to adopt the framework in visual inspection is shown here: 
 
 ![Fig. 2: Guidelines on how to adopt the *R4VR*-framework in visual inspection](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/ims/R4VRInspection.jpg)
+*Fig. 2: Guidelines on how to adopt the *R4VR*-framework in visual inspection*
 
 The process of data collection is shown in Fig. 3. 
 
 ![Fig. 3: Visualization of reliable and efficient data collection process](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/ims/DataCollection.jpg)
-
+*Fig. 3: Visualization of reliable and efficient data collection process; baseline dataset is curated manuylly; baseline model is trained; new images are labeled by baseline model automatically and human operator only corrects wrong predictions; baseline model is retrained and improved iteratively*
 
 For demonstration of the workflow, we utilize the defects dataset from [kaggle] (https://www.kaggle.com/datasets/fantacher/neu-metal-surface-defects-data/data).
 
 In the first step, we deonstrate how the data generation process scales and examine how different parameter settings affect manual labeling effort as well as computing time. To replicate the experiment, you can run the script "train_model_data_generation.py". This will create a json-file with statistics from the modeling process for each parameter setting as well as one .csv-file with runtime data for the different settings. You can use these files to create a plot like this (Fig. 4). 
 
-![Fig. 3: Visualization of reliable and efficient data collection process](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/ims/ManualLabelingEffortBaseModel.png)
+![Fig. 4: Manual labeling effort and computing time depending on the step size and the initial size of the training dataset](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/ims/ManualLabelingEffortBaseModel.png)
+*Fig. 4: Manual labeling effort and computing time depending on the step size and the initial size of the training dataset*
 
 Afterwards, we train two different models (ResNet18 and VGG16) on the entire dataset. You can replicate this training by running the script "train_model.py" with argument "use_aug" = "False". 
 
