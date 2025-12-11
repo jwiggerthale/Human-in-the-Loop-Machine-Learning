@@ -226,11 +226,7 @@ def train_loop(train_loader: DataLoader,
             torch.save(model.state_dict(), f'{log_dir}/model_loss.pth')
         elif(counter > early_stopping):
             torch.cuda.empty_cache()
-            log(f'model training in epoch {epoch +1 } completed; best acc: {best_acc}; loss: {best_loss}', 
-                file=f'{log_dir}/train_stats.txt')
             break
-    log(f'model training in epoch {epoch +1 } completed; best acc: {best_acc}; loss: {best_loss}', 
-                file=f'{log_dir}/train_stats.txt')
     torch.cuda.empty_cache()
 
 
