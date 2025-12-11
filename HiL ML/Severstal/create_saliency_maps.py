@@ -68,11 +68,11 @@ bad_loader = DataLoader(bad_set, batch_size=1, shuffle=False)
 
 model = efficientnet_b0().to('cuda')
 model.load_state_dict(torch.load('./weights/effnet_acc_tuned.pth'))
+model.eval()
 
 rn_model = resnet18().to('cuda')
 rn_model.load_state_dict(torch.load('./weights/resnet_acc_tuned.pth'))
-test_files = pd.read_csv('test_files.csv')
-
+rn_model.eval()
 
 i = 0
 for ims, labels, paths in iter(good_loader):
