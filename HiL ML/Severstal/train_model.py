@@ -1,3 +1,4 @@
+
 '''
 This script implements training of models
 EfficientNet-B0 as well as ResNet is trained
@@ -65,7 +66,7 @@ train_files = train_files.sample(frac=1).reset_index(drop=True)
 len_train = len(train_files)
 split = int(len_train/2)
 train_files_rn = train_files.iloc[:split, :]
-train_files_eff = train_files.iloc[split:, :]
+train_files_eff = train_files.iloc[split:, :].reset_index(drop = True)
 
 train_set_rn = image_dataset_pd(image_files=train_files_rn, 
                             transforms=transform_train)
@@ -92,7 +93,6 @@ test_loader = DataLoader(test_set, batch_size=64, shuffle=False)
 
 
 model = resnet18()
-model_type = 'resnet18'
 model.to(device)
 criterion = nn.CrossEntropyLoss() 
 optimizer = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=1e-3)
@@ -104,14 +104,12 @@ run_file = f'{out_dir}/resnet_pre/seed_{seed}'
 os.makedirs(run_file, exist_ok=True)
 train_loop(train_loader=train_loader_rn,
         val_loader = val_loader, 
-        log_file = f'{run_file}/train_stats.txt', 
+        log_dir= run_file, 
         model = model, 
         criterion = criterion, 
         optimizer = optimizer, 
-        #scheduler = scheduler, 
-        model_type = model_type, 
         aug_loader= aug_loader_rn,
-        num_epochs=200)
+        num_epochs=1)
 
     
 
@@ -121,7 +119,6 @@ torch.cuda.empty_cache()
 
 
 model = efficientnet_b0()
-model_type = 'effnet'
 model = model.to(device)
 
 criterion = nn.CrossEntropyLoss() 
@@ -134,14 +131,13 @@ run_file = f'{out_dir}/effnet_pre/seed_{seed}'
 os.makedirs(run_file, exist_ok=True)
 train_loop(train_loader=train_loader_eff,
         val_loader = val_loader, 
-        log_file = f'{run_file}/train_stats.txt', 
+        log_dir= run_file, 
         model = model, 
         criterion = criterion, 
         optimizer = optimizer, 
-        scheduler = scheduler, 
-        model_type = model_type, 
+        scheduler = scheduler,  
         aug_loader= aug_loader_eff,
-        num_epochs=200)
+        num_epochs=1)
 
 
 del model
@@ -186,7 +182,6 @@ test_loader = DataLoader(test_set, batch_size=64, shuffle=False)
 
 # Resnet
 model = resnet18()
-model_type = 'resnet18'
 model.load_state_dict(torch.load(f'{out_dir}/resnet_pre/seed_{seed}/model_acc.pth'))
 model.to(device)
 
@@ -200,14 +195,12 @@ run_file = f'{out_dir}/resnet_fine/seed_{seed}'
 os.makedirs(run_file, exist_ok=True)
 train_loop(train_loader=train_loader,
         val_loader = val_loader, 
-        log_file = f'{run_file}/train_stats.txt', 
+        log_dir= run_file, 
         model = model, 
         criterion = criterion, 
         optimizer = optimizer, 
-        #scheduler = scheduler, 
-        model_type = model_type, 
         aug_loader= aug_loader,
-        num_epochs=200)
+        num_epochs=1)
 
 del model
 torch.cuda.empty_cache()
@@ -217,7 +210,6 @@ train_loader = DataLoader(train_set, batch_size=64, shuffle=True)
 aug_loader = DataLoader(aug_set, batch_size=64, shuffle=True)
 
 model = efficientnet_b0()
-model_type = 'effnet'
 model = model.to(device)
 model.load_state_dict(torch.load(f'{out_dir}/effnet_pre/seed_{seed}/model_acc.pth'))
 
@@ -231,11 +223,10 @@ run_file = f'{out_dir}/effnet_fine/seed_{seed}'
 os.makedirs(run_file, exist_ok=True)
 train_loop(train_loader=train_loader,
         val_loader = val_loader, 
-        log_file = f'{run_file}/train_stats.txt', 
+        log_dir = run_file, 
         model = model, 
         criterion = criterion, 
         optimizer = optimizer, 
-        scheduler = scheduler, 
-        model_type = model_type, 
+        scheduler = scheduler,  
         aug_loader= aug_loader,
-        num_epochs=200)
+        num_epochs=1)
