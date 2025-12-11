@@ -14,6 +14,7 @@ In course of our research, we trained models 10 times with 10 different seed. Pe
 # Accuracies Without Augmentation 
 
   |Seed|resnet pre|effnet pre|resnet fine|effnet fine|
+  |---|---|---|---|---|
   |1|0.84049379|0.86939836|0.84890486|0.87553926|
   |17|0.83828362|0.85241545|0.84827138|0.879214|
   |22|0.83896215|0.86049516|0.8615439|0.90008717|
@@ -30,6 +31,7 @@ In course of our research, we trained models 10 times with 10 different seed. Pe
 # Accuracies With Augmentation 
 
   |Seed|resnet pre|effnet pre|resnet fine|effnet fine|
+  |---|---|---|---|---|
   |1|0.9250851|0.94061886|0.978002|0.96445063|
   |17|0.928539|0.93622878|0.97726345|0.97133829|
   |22|0.92532094|0.93407558|0.98786269|0.9680612|
