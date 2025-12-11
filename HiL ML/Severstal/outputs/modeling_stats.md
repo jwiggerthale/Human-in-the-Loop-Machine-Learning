@@ -1,4 +1,4 @@
-Running the script [train_model.py] ([https://www.kaggle.com/datasets/fantacher/neu-metal-surface-defects-data/data](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/HiL%20ML/Severstal/train_model.py))
+Running the script [train_model.py]([https://www.kaggle.com/datasets/fantacher/neu-metal-surface-defects-data/data](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/HiL%20ML/Severstal/train_model.py))
 will create four folders: 
 
 - {out_dir}/resnet_fine/seed_{seed}
