@@ -8,7 +8,7 @@ Machine Learning for Image Recognition". In the course of the paper we demonstra
 
 Our exact guidelines on how to adopt the framework in visual inspection is shown here: 
 
-![Fig. 2: Guidelines on how to adopt the *R4VR*-framework in visual inspection](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/ims/R4VRInspection.jpg)
+![Fig. 2: Guidelines on how to adopt the *R4VR*-framework in visual inspection](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/HiL%20ML/NEU%20metal%20surface%20defects%20data/ims/ManualLabelingEffortBaseModel.png)
 *Fig. 2: Guidelines on how to adopt the *R4VR*-framework in visual inspection*
 
 The process of data collection is shown in Fig. 3. 
