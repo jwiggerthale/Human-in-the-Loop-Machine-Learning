@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 
 
-from data_utils import image_dataset_pd, label_to_num, transform_test
+from data_utils import image_dataset_pd, transform_test
 from train_utils import mc_predict
 from utils import set_seed
 from modules import efficientnet_b0, resnet18
@@ -29,7 +29,6 @@ device = 'cuda'
 seed = 42
 set_seed(seed)
 
-num_to_label = {value: key for key, value in label_to_num.items()}
 
 
 model_name = 'effnet'
@@ -44,7 +43,7 @@ elif model_name.lower() == 'resnet':
     model.load_state_dict(torch.load(f'./outputs/resnet_fine/seed_{seed}model_acc.pth'))
 
 model.eval()                        
-out_name = f'./outputs/reliability/uncertainty_curve_{model_name}.json'
+out_name = f'./outputs/reliability/uncertainty_curve_seed_{seed}_{model_name}.json'
 if not os.path.isdir('./outputs/reliability'):
   os.makedirs('./outputs/reliability', exist_ok = True)
 
