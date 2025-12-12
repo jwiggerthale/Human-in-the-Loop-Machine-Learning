@@ -13,14 +13,14 @@ Our exact guidelines on how to adopt the framework in visual inspection is shown
 
 The process of data collection is shown in Fig. 3. 
 
-![Fig. 3: Visualization of reliable and efficient data collection process](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/HiL%20ML/Severstal/outputs/data_collection/ManualLabelingEffortBaseModelResNet.png)
+![Fig. 3: Visualization of reliable and efficient data collection process](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/ims/DataCollection.jpg)
 *Fig. 3: Visualization of reliable and efficient data collection process; baseline dataset is curated manuylly; baseline model is trained; new images are labeled by baseline model automatically and human operator only corrects wrong predictions; baseline model is retrained and improved iteratively*
 
 For demonstration of the workflow, we utilized the [severstal dataset](https://datasetninja.com/severstal). Also, we conducted exploratory experiments using the NEU metal surface defects dataset from [kaggle](https://www.kaggle.com/datasets/fantacher/neu-metal-surface-defects-data/data).
 
 In the first step, we deonstrate how the data generation process scales and examine how different parameter settings affect manual labeling effort as well as computing time. To replicate the experiment, you can run the script "train_model_data_generation.py". This will create a json-file with statistics from the modeling process for each parameter setting as well as one .csv-file with runtime data for the different settings. You can use these files to create a plot like this (Fig. 4). 
 
-![Fig. 4: Manual labeling effort and computing time depending on the step size and the initial size of the training dataset](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/HiL%20ML/NEU%20metal%20surface%20defects%20data/ims/ManualLabelingEffortBaseModel.png)
+![Fig. 4: Manual labeling effort and computing time depending on the step size and the initial size of the training dataset](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/HiL%20ML/Severstal/outputs/data_collection/ManualLabelingEffortBaseModelResNet.png)
 *Fig. 4: Manual labeling effort and computing time depending on the step size and the initial size of the training dataset*
 
 Afterwards, we train two different models (ResNet18 and VGG16 in case of the NEU dataset and ResNet18 as well as EfficientNet-B0 in case of severstal dataset) on the entire dataset. You can replicate this training by running the script "train_model.py" with argument "use_aug" = "False" in the appropriate folders. 
