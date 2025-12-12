@@ -20,7 +20,7 @@ For demonstration of the workflow, we utilized the [severstal dataset](https://d
 
 In the first step, we deonstrate how the data generation process scales and examine how different parameter settings affect manual labeling effort as well as computing time. To replicate the experiment, you can run the script "train_model_data_generation.py". This will create a json-file with statistics from the modeling process for each parameter setting as well as one .csv-file with runtime data for the different settings. You can use these files to create a plot like this (Fig. 4). 
 
-![Fig. 4: Manual labeling effort and computing time depending on the step size and the initial size of the training dataset](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/ims/ManualLabelingEffortBaseModel.png)
+![Fig. 4: Manual labeling effort and computing time depending on the step size and the initial size of the training dataset](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/HiL ML/NEU metal surface defects data/ims/ManualLabelingEffortBaseModel.png)
 *Fig. 4: Manual labeling effort and computing time depending on the step size and the initial size of the training dataset*
 
 Afterwards, we train two different models (ResNet18 and VGG16 in case of the NEU dataset and ResNet18 as well as EfficientNet-B0 in case of severstal dataset) on the entire dataset. You can replicate this training by running the script "train_model.py" with argument "use_aug" = "False" in the appropriate folders. 
