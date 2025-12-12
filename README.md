@@ -13,7 +13,7 @@ Our exact guidelines on how to adopt the framework in visual inspection is shown
 
 The process of data collection is shown in Fig. 3. 
 
-![Fig. 3: Visualization of reliable and efficient data collection process](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/ims/DataCollection.jpg)
+![Fig. 3: Visualization of reliable and efficient data collection process](https://github.com/jwiggerthale/Human-in-the-Loop-Machine-Learning/blob/main/HiL%20ML/Severstal/outputs/data_collection/ManualLabelingEffortBaseModelResNet.png)
 *Fig. 3: Visualization of reliable and efficient data collection process; baseline dataset is curated manuylly; baseline model is trained; new images are labeled by baseline model automatically and human operator only corrects wrong predictions; baseline model is retrained and improved iteratively*
 
 For demonstration of the workflow, we utilized the [severstal dataset](https://datasetninja.com/severstal). Also, we conducted exploratory experiments using the NEU metal surface defects dataset from [kaggle](https://www.kaggle.com/datasets/fantacher/neu-metal-surface-defects-data/data).
